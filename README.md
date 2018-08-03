@@ -1,2 +1,1 @@
-This is sample Prow test project
-
+This is a sample prow test PR.
