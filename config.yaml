@@ -1,0 +1,15 @@
+presubmits:
+  surajssd/samplecode:
+  - name: unit-tests         # As for periodics.
+    always_run: true         # Run for every PR, or only when requested.
+    skip_report: false       # Whether to skip setting a status on GitHub.
+    context: unit-tests      # Status context. Usually the job name.
+    max_concurrency: 10      # As for postsubmits.
+    agent: kubernetes        # As for periodics.
+    spec:
+      containers:
+      - image: docker.io/library/golang
+        command:
+        - /bin/bash -c "/usr/local/go/bin/go get github.com/$(REPO_OWNER)/$(REPO_NAME); cd /go/src/github.com/$(REPO_OWNER)/$(REPO_NAME); git fetch upstream pull/$(PULL_NUMBER)/head:pr_$(PULL_NUMBER); /usr/bin/git checkout pr_$(PULL_NUMBER); /usr/local/go/bin/go test ./..."
+    trigger: "(?m)^/test this"
+    rerun_command: "/test this"s

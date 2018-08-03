@@ -1,0 +1,6 @@
+plugins:
+  surajssd/samplecode:
+  - size
+  - cat
+  - dog
+  - trigger
