@@ -1,2 +1,2 @@
-# prow-test
-Sample repository for testing Prow
+This is sample Prow test project
+
