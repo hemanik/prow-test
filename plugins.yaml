@@ -1,5 +1,5 @@
 plugins:
-  surajssd/samplecode:
+  hemanik/prow-test:
   - size
   - cat
   - dog
